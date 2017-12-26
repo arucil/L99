@@ -32,3 +32,11 @@
       ls
       (remove* (cdr x*)
                (remove (car x*) ls))))
+
+(define (remove-nth n ls)
+  (cond
+   [(null? ls) '()]
+   [(zero? n) (cdr ls)]
+   [else
+    (cons (car ls)
+          (remove-nth (sub1 n) (cdr ls)))]))
